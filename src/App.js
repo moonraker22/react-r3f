@@ -1,6 +1,6 @@
 import './App.css'
 import Text3DScene from './components/Text3d/Text3d'
-import { Canvas } from '@react-three/fiber'
+import { Canvas, extend } from '@react-three/fiber'
 import {
   Loader,
   useGLTF,
@@ -39,6 +39,7 @@ function App() {
   // console.log(scene)
   return (
     <div style={{ height: '100vh', width: '100vw', background: 'black' }}>
+      <div className='bg' />
       <Canvas resize={{ polyfill: ResizeObserver }}>
         <Stars radius={500} depth={10} count={2000} factor={10} />
         <PerspectiveCamera makeDefault position={[0, 0, 16]} fov={1000}>
