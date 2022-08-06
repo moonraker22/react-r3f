@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Text3DScene from './components/Text3d/Text3d'
+import { Canvas } from '@react-three/fiber'
+import {
+  Loader,
+  useGLTF,
+  OrbitControls,
+  PerspectiveCamera,
+  Stars,
+} from '@react-three/drei'
+import { Model } from './components/Moon/Moon2'
 
 function App() {
+  // function Model({ url }) {
+  //   const { nodes } = useGLTF(url)
+  //   return (
+  //     // console.log(nodes)
+  //     <group rotation={[-Math.PI / 2, 0, 0]} position={[0, -7, 0]} scale={7}>
+  //       <group rotation={[Math.PI / 13.5, -Math.PI / 5.8, Math.PI / 5.6]}>
+  //         <mesh
+  //           receiveShadow
+  //           castShadow
+  //           geometry={nodes['x3d-cm-exterior-filler'].geometry}
+  //           material={nodes['x3d-cm-exterior-filler'].material}
+  //         />
+  //         <mesh
+  //           geometry={nodes.planet003.geometry}
+  //           material={nodes.planet003.material}
+  //         />
+  //       </group>
+  //     </group>
+  //   )
+  // }
+
+  // const scene = useGLTF(
+  //   './apollo_exterior-150k-4096-gltf/apollo_exterior-150k-4096.gltf'
+  // )
+  // console.log(scene)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ height: '100vh', width: '100vw', background: 'black' }}>
+      <Canvas>
+        <Stars />
+        <PerspectiveCamera makeDefault position={[0, 0, 16]} fov={1000}>
+          <ambientLight intensity={0.5} />
+          <pointLight position={[10, 10, 10]} />
+        </PerspectiveCamera>
+        <OrbitControls />
+        <Model />
+      </Canvas>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
