@@ -12,7 +12,7 @@ export function Moon(props) {
       <mesh
         geometry={nodes.Mars.geometry}
         material={materials.Mars}
-        scale={4.5}
+        scale={4.16}
         receiveShadow
         castShadow
       />
